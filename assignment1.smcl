@@ -1,0 +1,172 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/Alfonso/Google Drive/UT/Fall 2017/RD/assignment1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 8 Sep 2017, 15:24:19
+{txt}
+{com}. 
+. ******************
+. * Question 3
+. ******************
+. 
+. use "/Users/Alfonso/Google Drive/UT/Fall 2017/RD/students.dta"
+{txt}
+{com}. 
+. drop if missing(gkschid)
+{txt}(0 observations deleted)
+
+{com}. 
+. tempfile STAR_kindergarteners
+{txt}
+{com}. save `STAR_kindergarteners'
+{txt}file /var/folders/fw/y2sqj2rn1f71_k0pcqx08rbr0000gn/T//S_22767.000001 saved
+
+{com}. 
+. ******************
+. * Question 4
+. ******************
+. 
+. quietly sum _all
+{txt}
+{com}. 
+. ******************
+. * Question 5
+. ******************
+. 
+. * describe
+. *** 5789 kids
+. 
+. tab flagsgk
+
+ {txt}IN STAR IN {c |}
+KINDERGARTE {c |}
+          N {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+        yes {c |}{res}      5,789      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      5,789      100.00
+{txt}
+{com}. tab flagsg1
+
+ {txt}IN STAR IN {c |}
+    GRADE 1 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         no {c |}{res}      1,587       27.41       27.41
+{txt}        yes {c |}{res}      4,202       72.59      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      5,789      100.00
+{txt}
+{com}. tab flagsg2
+
+ {txt}IN STAR IN {c |}
+    GRADE 2 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         no {c |}{res}      2,367       40.89       40.89
+{txt}        yes {c |}{res}      3,422       59.11      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      5,789      100.00
+{txt}
+{com}. tab flagsg3
+
+ {txt}IN STAR IN {c |}
+    GRADE 3 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         no {c |}{res}      2,765       47.76       47.76
+{txt}        yes {c |}{res}      3,024       52.24      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      5,789      100.00
+{txt}
+{com}. 
+. 
+. sum gktreadss
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}gktreadss {c |}{res}      5789    436.7253    31.70626        315        627
+{txt}
+{com}. 
+. **** Population
+. **** Mean 436.72 , SD 31.70, CI: 435.90 - 437.54
+. 
+. ******************
+. * Question 6
+. ******************
+. 
+. * a. 
+. 
+. **** Sample
+. 
+. sample 160, count
+{txt}(5629 observations deleted)
+
+{com}. 
+. * i. 
+. 
+. mean gktreadss
+{res}
+{txt}Mean estimation{col 37}Number of obs{col 54}= {res}    160
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 3}gktreadss {c |}{col 14}{res}{space 2}  432.775{col 26}{space 2} 2.053069{col 37}{space 5} 428.7202{col 51}{space 3} 436.8298
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. 
+. **** Mean 433.9187 , SD 2.366
+. 
+. * ii. 
+. gen meanN = 436.72
+{txt}
+{com}. gen meann = 433.9187
+{txt}
+{com}. gen diffmeans = meanN - meann
+{txt}
+{com}. 
+. **** Difference of means 2.8013
+. 
+. * iii.
+. 
+. **** It falls inside our 95% CI for the population mean previously estimated
+. 
+. * iv.
+. **** It is significantly different from 440 at the 95% confidence level 
+. 
+. * b. 
+. 
+. use `STAR_kindergarteners', replace
+{txt}
+{com}. 
+. sample 160, count
+{txt}(5629 observations deleted)
+
+{com}. 
+. mean gktreadss
+{res}
+{txt}Mean estimation{col 37}Number of obs{col 54}= {res}    160
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 3}gktreadss {c |}{col 14}{res}{space 2} 436.3125{col 26}{space 2} 2.660673{col 37}{space 5} 431.0577{col 51}{space 3} 441.5673
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. 
+. *** 436.21
+. 
+. gen meann2 = 436.21
+{txt}
+{com}. 
+. *** Sample variation: 436.21 - 433.9187 = 2.2913, it is very similar to the
+. *** estimated standard error
+. *** The population mean is covered, it is actually very very similar.
+. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/Alfonso/Google Drive/UT/Fall 2017/RD/assignment1.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 8 Sep 2017, 15:24:19
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
