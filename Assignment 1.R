@@ -105,22 +105,12 @@ reject2
 
 repetition <- function(i) {
   sample <- STAR_kindergarteners[sample(nrow(STAR_kindergarteners), n),]
-  
   xbar <- mean(sample$gktreadss)
   sigma <- sd(sample$gktreadss)
-  
-  ##### Sampling Error
   diff <- mu - xbar
-  
-  #### Confidence Interval
-  
   c1 <- xbar - qnorm(0.975) * sigma/sqrt(n)
   c2 <- xbar + qnorm(0.975) * sigma/sqrt(n)
-  
   sample_CI <- c(c1, c2)
-  
-  #### Hypothesis test
-  
   z <- (xbar - mu)/(sigma/sqrt(n))
   alpha <- 0.05
   critical_values <- c(-qnorm(1-alpha/2), qnorm(1-alpha/2))
