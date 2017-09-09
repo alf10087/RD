@@ -8,6 +8,9 @@
 library(ggplot2)
 library(foreign)
 library(Hmisc)
+library(grid)
+library(gridExtra)
+library(easyGgplot2)
 rm(list = ls())
 
 ######## MODIFY THIS TO YOUR PATH
@@ -42,7 +45,7 @@ xbar1
 sigma1 <- sd(sample1$gktreadss)
 sigma1
 
-##### Sampling Error
+###### Sampling Error
 diff1 <- mu - xbar1
 diff1
 
@@ -118,71 +121,96 @@ repetition <- function(i) {
   results <- c(xbar, sigma, diff, sample_CI, z, reject)
 }
 
-bs10 <- data.frame(t(sapply(1:10, repetition)))
+bs25 <- data.frame(t(sapply(1:25, repetition)))
 bs100 <-  data.frame(t(sapply(1:100, repetition)))
 bs1000 <-  data.frame(t(sapply(1:1000, repetition)))
-bs10000 <-  data.frame(t(sapply(1:10000, repetition)))
+bs5000 <-  data.frame(t(sapply(1:5000, repetition)))
 
-#### N = 10
+#### N = 25
 
-ggplot(data=bs10, aes(bs10$X1)) + 
+meana <-  mean(bs25$X1)
+meana <- round(meana, digits=2)
+texta <- paste ("x=", meana)
+a <- ggplot(data=bs25, aes(bs25$X1)) + 
   geom_histogram(aes(y =..density..), 
                  fill="red",
                  col = "red",
-                 alpha = .5) + 
-  geom_density(col=1) + 
-  labs(title="n = 10") +
-  labs(x="Mean Kindergarden Reading Score", y="Count") +
+                 alpha = .5) 
+
+a <- a + geom_density(col=1) + 
+    labs(title="n = 25") +
+    labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
              color="dark green", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=1) +
-  xlim(430, 446)
+  xlim(430, 445) +
+  ylim(0, 0.4) +
+  annotate("text", x = 443, y = 0.3, label = texta)
 
 #### N = 100
 
-ggplot(data=bs100, aes(bs100$X1)) + 
+meanb <-  mean(bs100$X1)
+meanb <- round(meanb, digits=2)
+textb <- paste ("x=", meanb)
+specify_decimal(textb, 2)
+b <- ggplot(data=bs100, aes(bs100$X1)) + 
   geom_histogram(aes(y =..density..), 
                  fill="red",
                  col = "red",
-                 alpha = .5) + 
-  geom_density(col=1) + 
+                 alpha = .5) 
+
+b <- b + geom_density(col=1) + 
   labs(title="n = 100") +
-  labs(x="Mean Kindergarden Reading Score", y="Count") +
+  labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
              color="dark green", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=1) +
-  xlim(430, 446)
+  xlim(430, 445) +
+  ylim(0, 0.4) +
+  annotate("text", x = 443, y = 0.3, label = textb)
 
 #### N = 1000
 
-ggplot(data=bs1000, aes(bs1000$X1)) + 
+meanc <-  mean(bs1000$X1)
+meanc <- round(meanc, digits=2)
+textc <- paste ("x=", meanc)
+c <- ggplot(data=bs1000, aes(bs1000$X1)) + 
   geom_histogram(aes(y =..density..), 
                  fill="red",
                  col = "red",
-                 alpha = .5) + 
-  geom_density(col=1) + 
+                 alpha = .5) 
+
+c <- c + geom_density(col=1) + 
   labs(title="n = 1000") +
-  labs(x="Mean Kindergarden Reading Score", y="Count") +
+  labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
              color="dark green", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=1) +
-  xlim(430, 446)
+  xlim(430, 445) +
+  annotate("text", x = 443, y = 0.15, label = textc)
 
-#### N = 10000
+#### N = 5000
 
-ggplot(data=bs10000, aes(bs10000$X1)) + 
+meand <-  mean(bs5000$X1)
+meand <- round(meand, digits=2)
+textd <- paste ("x=", meand)
+d <- ggplot(data=bs5000, aes(bs5000$X1)) + 
   geom_histogram(aes(y =..density..), 
                  fill="red",
                  col = "red",
-                 alpha = .5) + 
-  geom_density(col=1) + 
-  labs(title="n = 10000") +
-  labs(x="Mean Kindergarden Reading Score", y="Count") +
+                 alpha = .5) 
+
+d <- d + geom_density(col=1) + 
+  labs(title="n = 5000") +
+  labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
              color="dark green", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=1) +
-  xlim(430, 446)
+  xlim(430, 445) +
+  annotate("text", x = 443, y = 0.15, label = textd)
+
+ggplot2.multiplot(a,b,c, d, cols=2)
