@@ -134,19 +134,21 @@ texta <- paste ("x=", meana)
 a <- ggplot(data=bs25, aes(bs25$X1)) + 
   geom_histogram(aes(y =..density..), 
                  fill="red",
-                 col = "red",
                  alpha = .5) 
 
-a <- a + geom_density(col=1) + 
+a <- a + geom_density(col =1) + 
     labs(title="n = 25") +
     labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
-             color="dark green", linetype="dashed", size=1) +
+             color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
-             color="BLACK", size=1) +
+             color="BLACK", size=0.5) +
   xlim(430, 445) +
-  ylim(0, 0.4) +
+  ylim(0, 0.33) +
   annotate("text", x = 443, y = 0.3, label = texta)
+
+a <- a + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
 
 #### N = 100
 
@@ -157,19 +159,21 @@ specify_decimal(textb, 2)
 b <- ggplot(data=bs100, aes(bs100$X1)) + 
   geom_histogram(aes(y =..density..), 
                  fill="red",
-                 col = "red",
                  alpha = .5) 
 
-b <- b + geom_density(col=1) + 
+b <- b + geom_density(col =1) + 
   labs(title="n = 100") +
   labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
-             color="dark green", linetype="dashed", size=1) +
+             color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
-             color="BLACK", size=1) +
+             color="BLACK", size=0.5) +
   xlim(430, 445) +
-  ylim(0, 0.4) +
+  ylim(0, 0.3) +
   annotate("text", x = 443, y = 0.3, label = textb)
+
+b <- b + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 #### N = 1000
 
@@ -179,18 +183,20 @@ textc <- paste ("x=", meanc)
 c <- ggplot(data=bs1000, aes(bs1000$X1)) + 
   geom_histogram(aes(y =..density..), 
                  fill="red",
-                 col = "red",
                  alpha = .5) 
 
-c <- c + geom_density(col=1) + 
+c <- c + geom_density(col =1) + 
   labs(title="n = 1000") +
   labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
-             color="dark green", linetype="dashed", size=1) +
+             color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
-             color="BLACK", size=1) +
+             color="BLACK", size=0.5) +
   xlim(430, 445) +
   annotate("text", x = 443, y = 0.15, label = textc)
+
+c <- c + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 #### N = 5000
 
@@ -200,17 +206,19 @@ textd <- paste ("x=", meand)
 d <- ggplot(data=bs5000, aes(bs5000$X1)) + 
   geom_histogram(aes(y =..density..), 
                  fill="red",
-                 col = "red",
                  alpha = .5) 
 
-d <- d + geom_density(col=1) + 
+d <- d + geom_density(col =1) + 
   labs(title="n = 5000") +
   labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
-             color="dark green", linetype="dashed", size=1) +
+             color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
-             color="BLACK", size=1) +
-  xlim(430, 445) +
+             color="BLACK", size=0.5) +
   annotate("text", x = 443, y = 0.15, label = textd)
+  
+d <- d + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
+d  
 
 ggplot2.multiplot(a,b,c, d, cols=2)
