@@ -144,9 +144,9 @@ bs500 <-  data.frame(t(sapply(1:1000, repetition)))
 
 #### N = 15
 
-meana <-  mean(bs15$X1)
-meana <- round(meana, digits=3)
-texta <- paste ("x=",meana)
+sda <-  sd(bs15$X1)
+sda <- round(sda, digits=3)
+texta <- paste ("sd =",sda)
 a <- ggplot(data=bs15, aes(bs15$X1)) +
   geom_histogram(aes(y =..density..),
                  fill="red",
@@ -159,18 +159,18 @@ a <- a + geom_density(col =1) +
              color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
-  xlim(430, 445) +
-  ylim(0, 0.15) +
-  annotate("text", x = 443, y = 0.12, label = texta, size = 3)
+  xlim(418, 455) +
+  ylim(0, 0.06) +
+  annotate("text", x = 448.5, y = 0.055, label = texta, size = 3)
 
 a <- a + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
 
 #### N = 40
 
-meanb <-  mean(bs40$X1)
-meanb <- round(meanb, digits=3)
-textb <- paste ("x=",meanb)
+sdb <-  sd(bs40$X1)
+sdb <- round(sdb, digits=3)
+textb <- paste ("sd =",sdb)
 b <- ggplot(data=bs40, aes(bs40$X1)) +
   geom_histogram(aes(y =..density..),
                  fill="red",
@@ -184,18 +184,18 @@ b <- b + geom_density(col =1) +
              color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
-  xlim(430, 445) +
-  ylim(0, 0.15) +
-  annotate("text", x = 443, y = 0.12, label = textb, size = 3)
+  xlim(418, 455) +
+  ylim(0, 0.095) +
+  annotate("text", x = 448, y = 0.085, label = textb, size = 3)
 
 b <- b + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 #### N = 160
 
-meanc <-  mean(bs160$X1)
-meanc <- round(meanc, digits=3)
-textc <- paste ("x=",meanc)
+sdc <-  sd(bs160$X1)
+sdc <- round(sdc, digits=3)
+textc <- paste ("sd =",sdc)
 c <- ggplot(data=bs160, aes(bs160$X1)) +
   geom_histogram(aes(y =..density..),
                  fill="red",
@@ -208,17 +208,17 @@ c <- c + geom_density(col =1) +
              color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
-  xlim(430, 445) +
-  annotate("text", x = 443, y = 0.11, label = textc, size=3)
+  xlim(428, 445) +
+  annotate("text", x = 442, y = 0.15, label = textc, size=3)
 
 c <- c + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 #### N = 500
 
-meand <-  mean(bs500$X1)
-meand <- round(meand, digits=3)
-textd <- paste ("x=",meand)
+sdd <-  sd(bs500$X1)
+sdd <- round(sdd, digits=3)
+textd <- paste ("sd =",sdd)
 d <- ggplot(data=bs500, aes(bs500$X1)) +
   geom_histogram(aes(y =..density..),
                  fill="red",
@@ -232,7 +232,7 @@ d <- d + geom_density(col =1) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
   xlim(430, 445) +
-  annotate("text", x = 443, y = 0.18, label = textd, size = 3)
+  annotate("text", x = 442.5, y = 0.22, label = textd, size = 3)
   
 d <- d + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
