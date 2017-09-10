@@ -5,6 +5,7 @@
 # Fall 2017
 #######################################
 
+set.seed(3347)
 library(ggplot2)
 library(foreign)
 library(Hmisc)
@@ -17,7 +18,7 @@ rm(list = ls())
 setwd("/Users/Alfonso/Google Drive/UT/Fall 2017/RD")
 
 ##### Load Dataset
-students <- read.dta("students.dta")
+students <- read.dta("STAR_students.dta")
 
 #### Load Variable Labels
 var.labels <- attr(students, "var.labels")
@@ -26,10 +27,15 @@ data.key <- data.frame(var.name=names(students), var.labels)
 #### Clear Mising gkschid
 STAR_kindergarteners <- students[!(is.na(students$gkschid)),]
 
+#### Number of students 
+
+nrow(STAR_kindergarteners)
+
 #### Population Parameters
-mu <- mean(STAR_kindergarteners$gktreadss)
+gktreadss <- na.omit(STAR_kindergarteners$gktreadss)
+mu <- mean(gktreadss)
 mu
-sigma <- sd(STAR_kindergarteners$gktreadss)
+sigma <- sd(gktreadss)
 sigma
 
 n <- 160
@@ -40,9 +46,10 @@ n <- 160
 
 sample1 <- STAR_kindergarteners[sample(nrow(STAR_kindergarteners), n),]
 
-xbar1 <- mean(sample1$gktreadss)
+gktreadss_sample1 <- na.omit(sample1$gktreadss)
+xbar1 <- mean(gktreadss_sample1)
 xbar1
-sigma1 <- sd(sample1$gktreadss)
+sigma1 <- sd(gktreadss_sample1)
 sigma1
 
 ###### Sampling Error
@@ -72,9 +79,10 @@ reject1
 
 sample2 <- STAR_kindergarteners[sample(nrow(STAR_kindergarteners), n),]
 
-xbar2 <- mean(sample2$gktreadss)
+gktreadss_sample2 <- na.omit(sample2$gktreadss)
+xbar2 <- mean(gktreadss_sample2)
 xbar2
-sigma2 <- sd(sample2$gktreadss)
+sigma2 <- sd(gktreadss_sample2)
 sigma2
 
 ##### Sampling Error
@@ -108,8 +116,9 @@ reject2
 
 repetition <- function(i) {
   sample <- STAR_kindergarteners[sample(nrow(STAR_kindergarteners), n),]
-  xbar <- mean(sample$gktreadss)
-  sigma <- sd(sample$gktreadss)
+  gktreadss_sample <- na.omit(sample$gktreadss)
+  xbar <- mean(gktreadss_sample)
+  sigma <- sd(gktreadss_sample)
   diff <- mu - xbar
   c1 <- xbar - qnorm(0.975) * sigma/sqrt(n)
   c2 <- xbar + qnorm(0.975) * sigma/sqrt(n)
@@ -121,104 +130,111 @@ repetition <- function(i) {
   results <- c(xbar, sigma, diff, sample_CI, z, reject)
 }
 
-bs25 <- data.frame(t(sapply(1:25, repetition)))
-bs100 <-  data.frame(t(sapply(1:100, repetition)))
-bs1000 <-  data.frame(t(sapply(1:1000, repetition)))
-bs5000 <-  data.frame(t(sapply(1:5000, repetition)))
+n <- 15
+bs15 <-  data.frame(t(sapply(1:1000, repetition)))
 
-#### N = 25
+n <- 40
+bs40 <-  data.frame(t(sapply(1:1000, repetition)))
 
-meana <-  mean(bs25$X1)
-meana <- round(meana, digits=2)
-texta <- paste ("x=", meana)
-a <- ggplot(data=bs25, aes(bs25$X1)) + 
-  geom_histogram(aes(y =..density..), 
+n <- 160
+bs160 <-  data.frame(t(sapply(1:1000, repetition)))
+
+n <- 500
+bs500 <-  data.frame(t(sapply(1:1000, repetition)))
+
+#### N = 15
+
+meana <-  mean(bs15$X1)
+meana <- round(meana, digits=3)
+texta <- paste ("x=",meana)
+a <- ggplot(data=bs15, aes(bs15$X1)) +
+  geom_histogram(aes(y =..density..),
                  fill="red",
-                 alpha = .5) 
+                 alpha = .5)
 
-a <- a + geom_density(col =1) + 
-    labs(title="n = 25") +
-    labs(x=NULL, y=NULL) +
+a <- a + geom_density(col =1) +
+  labs(title="n = 15") +
+  labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
              color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
   xlim(430, 445) +
-  ylim(0, 0.33) +
-  annotate("text", x = 443, y = 0.3, label = texta)
+  ylim(0, 0.15) +
+  annotate("text", x = 443, y = 0.12, label = texta, size = 3)
 
 a <- a + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
 
-#### N = 100
+#### N = 40
 
-meanb <-  mean(bs100$X1)
-meanb <- round(meanb, digits=2)
-textb <- paste ("x=", meanb)
-specify_decimal(textb, 2)
-b <- ggplot(data=bs100, aes(bs100$X1)) + 
-  geom_histogram(aes(y =..density..), 
+meanb <-  mean(bs40$X1)
+meanb <- round(meanb, digits=3)
+textb <- paste ("x=",meanb)
+b <- ggplot(data=bs40, aes(bs40$X1)) +
+  geom_histogram(aes(y =..density..),
                  fill="red",
-                 alpha = .5) 
+                 alpha = .5)
 
-b <- b + geom_density(col =1) + 
-  labs(title="n = 100") +
+
+b <- b + geom_density(col =1) +
+  labs(title="n = 40") +
   labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
              color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
   xlim(430, 445) +
-  ylim(0, 0.3) +
-  annotate("text", x = 443, y = 0.3, label = textb)
+  ylim(0, 0.15) +
+  annotate("text", x = 443, y = 0.12, label = textb, size = 3)
 
 b <- b + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
-#### N = 1000
+#### N = 160
 
-meanc <-  mean(bs1000$X1)
-meanc <- round(meanc, digits=2)
-textc <- paste ("x=", meanc)
-c <- ggplot(data=bs1000, aes(bs1000$X1)) + 
-  geom_histogram(aes(y =..density..), 
+meanc <-  mean(bs160$X1)
+meanc <- round(meanc, digits=3)
+textc <- paste ("x=",meanc)
+c <- ggplot(data=bs160, aes(bs160$X1)) +
+  geom_histogram(aes(y =..density..),
                  fill="red",
-                 alpha = .5) 
+                 alpha = .5)
 
-c <- c + geom_density(col =1) + 
-  labs(title="n = 1000") +
+c <- c + geom_density(col =1) +
+  labs(title="n = 160") +
   labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
              color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
   xlim(430, 445) +
-  annotate("text", x = 443, y = 0.15, label = textc)
+  annotate("text", x = 443, y = 0.11, label = textc, size=3)
 
 c <- c + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
-#### N = 5000
+#### N = 500
 
-meand <-  mean(bs5000$X1)
-meand <- round(meand, digits=2)
-textd <- paste ("x=", meand)
-d <- ggplot(data=bs5000, aes(bs5000$X1)) + 
-  geom_histogram(aes(y =..density..), 
+meand <-  mean(bs500$X1)
+meand <- round(meand, digits=3)
+textd <- paste ("x=",meand)
+d <- ggplot(data=bs500, aes(bs500$X1)) +
+  geom_histogram(aes(y =..density..),
                  fill="red",
-                 alpha = .5) 
+                 alpha = .5)
 
-d <- d + geom_density(col =1) + 
-  labs(title="n = 5000") +
+d <- d + geom_density(col =1) +
+  labs(title="n = 500") +
   labs(x=NULL, y=NULL) +
   geom_vline(aes(xintercept=mean(X1)),
              color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
-  annotate("text", x = 443, y = 0.15, label = textd)
+  xlim(430, 445) +
+  annotate("text", x = 443, y = 0.18, label = textd, size = 3)
   
 d <- d + 
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
-d  
 
 ggplot2.multiplot(a,b,c, d, cols=2)
