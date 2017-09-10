@@ -30,13 +30,13 @@ save `STAR_kindergarteners'
 * Question 4
 ******************
 
-quietly sum _all
+* quietly sum _all
 
 ******************
 * Question 5
 ******************
 
-describe
+* describe
 *** 6325 kids
 
 tab flagsgk
