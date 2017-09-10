@@ -13,13 +13,13 @@ clear all
 ******************
 
 log close _all
-log using "assignment1", replace
+log using "/Users/Alfonso/Google Drive/UT/Fall 2017/RD/assignment1", replace
 
 ******************
 * Question 3
 ******************
 
-use "/Users/Alfonso/Downloads/students.dta"
+use "/Users/Alfonso/Google Drive/UT/Fall 2017/RD/STAR_students.dta"
 
 drop if missing(gkschid)
 
@@ -37,13 +37,12 @@ quietly sum _all
 ******************
 
 describe
-*** 5789 kids
+*** 6325 kids
 
 tab flagsgk
 tab flagsg1
 tab flagsg2
 tab flagsg3
-
 
 sum gktreadss
 
@@ -56,7 +55,7 @@ sum gktreadss
 
 * a. 
 
-**** Sample
+**** Sample 1
 
 sample 160, count
 
@@ -80,7 +79,7 @@ gen diffmeans = meanN - meann
 * iv.
 **** It is significantly different from 440 at the 95% confidence level 
 
-* b. 
+**** b. Sample II
 
 use `STAR_kindergarteners', replace
 

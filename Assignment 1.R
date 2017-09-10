@@ -231,7 +231,7 @@ d <- d + geom_density(col =1) +
              color="dark green", linetype="dashed", size=0.5) +
   geom_vline(aes(xintercept=mu),
              color="BLACK", size=0.5) +
-  xlim(430, 445) +
+  xlim(428, 445) +
   annotate("text", x = 442.5, y = 0.22, label = textd, size = 3)
   
 d <- d + 
