@@ -1,0 +1,330 @@
+\documentclass[12pt]{article} 
+\usepackage[margin=1in]{geometry} 
+\setlength{\parindent}{0in} 
+\usepackage{verbatim}
+\usepackage{bm} 
+\usepackage{hyperref} 
+\usepackage{float}
+\author{Alfonso Rojas-Alvarez} 
+\title{Assignment 1} 
+\begin{document}
+\maketitle
+
+\subsection*{Prepare the dataset:}
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+set.seed(3347)
+library(ggplot2)
+library(foreign)
+library(Hmisc)
+library(grid)
+library(gridExtra)
+library(easyGgplot2)
+rm(list = ls())
+setwd("/Users/Alfonso/Google Drive/UT/Fall 2017/RD")
+@
+
+\textit{Load Dataset:}
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+students <- read.dta("STAR_students.dta")
+@
+
+\textit{Load Variable Labels:}
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+var.labels <- attr(students, "var.labels")
+data.key <- data.frame(var.name=names(students), var.labels)
+@
+
+\textit{Clear Mising gkschid:}
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+STAR_kindergarteners <- students[!(is.na(students$gkschid)),]
+@
+
+How many students are in the population (N)? Suppose I told you that almost every Tennessee kindergartner participated in the STAR experiment. Would you believe me? Why or why not?
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+nrow(STAR_kindergarteners)
+@
+
+\textit{The population is 6325 students. In this data set, every kindergartner participated in the STAR experiment, so it would be a reasonable inference to state that almost every student in TN participated in the STAR experiment. With a sample size that big, we can be somewhat confident about our inferences, as long as we asume the data set is unbiased.} \\
+
+In the population, what are the mean and standard deviation of the kindergarten reading tests? \\
+
+\textit{Population Parameters:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+gktreadss <- na.omit(STAR_kindergarteners$gktreadss)
+mu <- mean(gktreadss)
+mu
+sigma <- sd(gktreadss)
+sigma
+@
+\subsection*{Samples}
+
+Now take simple random samples from the population, repeatedly. Using the sample command, take a simple random sample of n=160 students. \\
+
+\textit{Set Sample Size:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+n <- 160
+@
+
+\textit{Take Sample 1:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+sample1 <- STAR_kindergarteners[sample(nrow(STAR_kindergarteners), n),]
+@
+
+Use your sample to estimate the population mean. Use the mean command and paste the output below.
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+gktreadss_sample1 <- na.omit(sample1$gktreadss)
+xbar1 <- mean(gktreadss_sample1)
+xbar1
+sigma1 <- sd(gktreadss_sample1)
+sigma1
+@
+
+How much does the mean of your sample differ from the mean of the population? What is this difference called? \\
+
+\textit{It is called a Sampling Error, and for this case it is the following:}
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+diff1 <- mu - xbar1
+diff1
+@
+
+How large is the difference compared to the estimated standard error? \\
+
+\textit{Standard Error:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+se1 <- sigma1 / 40
+se1
+@
+
+\textit{The standard error is much smaller.} \\
+
+Look at the 95\% confidence interval which Stata has calculated from your sample. Does it cover the population mean? \\
+
+\textit{Confidence Interval:}
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+c1 <- xbar1 - qnorm(0.975) * sigma1/sqrt(n)
+c2 <- xbar1 + qnorm(0.975) * sigma1/sqrt(n)
+
+sample1_CI <- c(c1, c2)
+sample1_CI
+@
+
+Is the sample mean ``significantly different'' from 440? \\
+
+\textit{Hypothesis test:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+z1 <- (xbar1 - mu)/(sigma1/sqrt(n))
+z1
+alpha <- 0.05
+critical_values <- c(-qnorm(1-alpha/2), qnorm(1-alpha/2))
+reject1 <- isTRUE(!-qnorm(1-alpha/2) <  z1 & z1 < qnorm(1-alpha/2))
+reject1
+@
+
+\textit{No, we can't reject the null hypothesis that they are different.} \\
+
+Reload the population. Then take a different simple random sample of 160 students. \\
+
+\textit{Take Sample 2:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+sample2 <- STAR_kindergarteners[sample(nrow(STAR_kindergarteners), n),]
+@
+
+Use your new sample to re-estimate the population mean.
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+gktreadss_sample2 <- na.omit(sample2$gktreadss)
+xbar2 <- mean(gktreadss_sample2)
+xbar2
+sigma2 <- sd(gktreadss_sample2)
+sigma2
+@
+
+How much does the mean of this sample differ from the mean of the first sample? What is this difference called? \\
+
+\textit{It is called a Sample Variation, and for this case it is the following:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+sample_variation <- xbar1 - xbar2
+sample_variation
+@
+
+How large is the difference compared to the estimated standard error? \\
+
+\textit{Standard Error:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+se2 <- sigma2 / 40
+@
+
+\textit{It is smaller, and much closer to the SE than the Sampling Error.} \\
+
+In this second sample, does the 95\% confidence interval cover the population mean? \\
+
+\textit{Confidence Interval:}
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+c1 <- xbar2 - qnorm(0.975) * sigma2/sqrt(n)
+c2 <- xbar2 + qnorm(0.975) * sigma2/sqrt(n)
+
+sample2_CI <- c(c1, c2)
+sample2_CI
+@
+
+\textit{Yes, the confidence interval we have estimated contains the population mean.}
+
+\newpage
+\subsection*{Bootstrap Method}
+
+<<echo=FALSE, warning=F, error=FALSE, message=FALSE>>=
+
+repetition <- function(i) {
+  sample <- STAR_kindergarteners[sample(nrow(STAR_kindergarteners), n),]
+  gktreadss_sample <- na.omit(sample$gktreadss)
+  xbar <- mean(gktreadss_sample)
+  sigma <- sd(gktreadss_sample)
+  diff <- mu - xbar
+  c1 <- xbar - qnorm(0.975) * sigma/sqrt(n)
+  c2 <- xbar + qnorm(0.975) * sigma/sqrt(n)
+  sample_CI <- c(c1, c2)
+  z <- (xbar - mu)/(sigma/sqrt(n))
+  alpha <- 0.05
+  critical_values <- c(-qnorm(1-alpha/2), qnorm(1-alpha/2))
+  reject <- isTRUE(!-qnorm(1-alpha/2) <  z & z < qnorm(1-alpha/2))
+  results <- c(xbar, sigma, diff, sample_CI, z, reject)
+}
+
+n <- 15
+bs15 <-  data.frame(t(sapply(1:1000, repetition)))
+
+n <- 40
+bs40 <-  data.frame(t(sapply(1:1000, repetition)))
+
+n <- 160
+bs160 <-  data.frame(t(sapply(1:1000, repetition)))
+
+n <- 500
+bs500 <-  data.frame(t(sapply(1:1000, repetition)))
+
+@
+
+<<echo=FALSE, warning=F, error=FALSE, message=FALSE>>=
+
+sda <-  sd(bs15$X1)
+sda <- round(sda, digits=3)
+texta <- paste ("sd =",sda)
+a <- ggplot(data=bs15, aes(bs15$X1)) +
+  geom_histogram(aes(y =..density..),
+                 fill="red",
+                 alpha = .5)
+
+a <- a + geom_density(col =1) +
+  labs(title="n = 15") +
+  labs(x=NULL, y=NULL) +
+  geom_vline(aes(xintercept=mean(X1)),
+             color="dark green", linetype="dashed", size=0.5) +
+  geom_vline(aes(xintercept=mu),
+             color="BLACK", size=0.5) +
+  xlim(418, 455) +
+  ylim(0, 0.06) +
+  annotate("text", x = 448.5, y = 0.055, label = texta, size = 3)
+
+a <- a + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
+@
+
+<<echo=FALSE, warning=F, error=FALSE, message=FALSE>>=
+
+sdb <-  sd(bs40$X1)
+sdb <- round(sdb, digits=3)
+textb <- paste ("sd =",sdb)
+b <- ggplot(data=bs40, aes(bs40$X1)) +
+  geom_histogram(aes(y =..density..),
+                 fill="red",
+                 alpha = .5)
+
+
+b <- b + geom_density(col =1) +
+  labs(title="n = 40") +
+  labs(x=NULL, y=NULL) +
+  geom_vline(aes(xintercept=mean(X1)),
+             color="dark green", linetype="dashed", size=0.5) +
+  geom_vline(aes(xintercept=mu),
+             color="BLACK", size=0.5) +
+  xlim(418, 455) +
+  ylim(0, 0.095) +
+  annotate("text", x = 448, y = 0.090, label = textb, size = 3)
+
+b <- b + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+@
+
+<<echo=FALSE, warning=F, error=FALSE, message=FALSE>>=
+
+sdc <-  sd(bs160$X1)
+sdc <- round(sdc, digits=3)
+textc <- paste ("sd =",sdc)
+c <- ggplot(data=bs160, aes(bs160$X1)) +
+  geom_histogram(aes(y =..density..),
+                 fill="red",
+                 alpha = .5)
+
+c <- c + geom_density(col =1) +
+  labs(title="n = 160") +
+  labs(x=NULL, y=NULL) +
+  geom_vline(aes(xintercept=mean(X1)),
+             color="dark green", linetype="dashed", size=0.5) +
+  geom_vline(aes(xintercept=mu),
+             color="BLACK", size=0.5) +
+  xlim(428, 445) +
+  annotate("text", x = 442, y = 0.15, label = textc, size=3)
+
+c <- c + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+@
+
+<<echo=FALSE, warning=F, error=FALSE, message=FALSE>>=
+
+sdd <-  sd(bs500$X1)
+sdd <- round(sdd, digits=3)
+textd <- paste ("sd =",sdd)
+d <- ggplot(data=bs500, aes(bs500$X1)) +
+  geom_histogram(aes(y =..density..),
+                 fill="red",
+                 alpha = .5)
+
+d <- d + geom_density(col =1) +
+  labs(title="n = 500") +
+  labs(x=NULL, y=NULL) +
+  geom_vline(aes(xintercept=mean(X1)),
+             color="dark green", linetype="dashed", size=0.5) +
+  geom_vline(aes(xintercept=mu),
+             color="BLACK", size=0.5) +
+  xlim(428, 445) +
+  annotate("text", x = 442.5, y = 0.22, label = textd, size = 3)
+  
+d <- d + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
+@
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+ggplot2.multiplot(a,b, c, d, cols=2)
+@
+
+<<echo=TRUE, warning=F, error=FALSE, message=FALSE>>=
+round(mu, digits=3)
+@
+
+<<echo=FALSE, warning=F, error=FALSE, message=FALSE>>=
+colnames(bs500) <- c("Mean", "SD", "Mu-Sigma", "C1", "C2", "Z", "Reject")
+head(bs500)
+@
+\end{document}

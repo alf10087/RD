@@ -3,24 +3,24 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/Alfonso/Google Drive/UT/Fall 2017/RD/assignment1.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 8 Sep 2017, 15:24:19
+ {txt}opened on:  {res} 9 Sep 2017, 20:56:56
 {txt}
 {com}. 
 . ******************
 . * Question 3
 . ******************
 . 
-. use "/Users/Alfonso/Google Drive/UT/Fall 2017/RD/students.dta"
+. use "/Users/Alfonso/Google Drive/UT/Fall 2017/RD/STAR_students.dta"
 {txt}
 {com}. 
 . drop if missing(gkschid)
-{txt}(0 observations deleted)
+{txt}(5276 observations deleted)
 
 {com}. 
 . tempfile STAR_kindergarteners
 {txt}
 {com}. save `STAR_kindergarteners'
-{txt}file /var/folders/fw/y2sqj2rn1f71_k0pcqx08rbr0000gn/T//S_22767.000001 saved
+{txt}file /var/folders/fw/y2sqj2rn1f71_k0pcqx08rbr0000gn/T//S_29168.000001 saved
 
 {com}. 
 . ******************
@@ -34,8 +34,399 @@
 . * Question 5
 . ******************
 . 
-. * describe
-. *** 5789 kids
+. describe
+
+{txt}Contains data from {res}/var/folders/fw/y2sqj2rn1f71_k0pcqx08rbr0000gn/T//S_29168.000001
+{txt}  obs:{res}         6,325                          
+{txt} vars:{res}           379                          9 Sep 2017 20:56
+{txt} size:{res}     3,655,850                          
+{txt}{hline}
+              storage  display     value
+variable name   type   format      label      variable label
+{hline}
+{p 0 48}{res}{bind:stdntid        }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}STUDENT ID{p_end}
+{p 0 48}{bind:gender         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABA     }{bind:  }{res}{res}STUDENT GENDER{p_end}
+{p 0 48}{bind:race           }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABB     }{bind:  }{res}{res}STUDENT RACE/ETHNICITY{p_end}
+{p 0 48}{bind:birthmonth     }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:BIRTHMON }{bind:  }{res}{res}STUDENT MONTH OF BIRTH{p_end}
+{p 0 48}{bind:birthday       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}STUDENT DAY OF BIRTH{p_end}
+{p 0 48}{bind:birthyear      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}STUDENT YEAR OF BIRTH{p_end}
+{p 0 48}{bind:flagsgk        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}IN STAR IN KINDERGARTEN{p_end}
+{p 0 48}{bind:flagsg1        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}IN STAR IN GRADE 1{p_end}
+{p 0 48}{bind:flagsg2        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}IN STAR IN GRADE 2{p_end}
+{p 0 48}{bind:flagsg3        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}IN STAR IN GRADE 3{p_end}
+{p 0 48}{bind:flaggk         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE K{p_end}
+{p 0 48}{bind:flagg1         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE 1{p_end}
+{p 0 48}{bind:flagg2         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE 2{p_end}
+{p 0 48}{bind:flagg3         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE 3{p_end}
+{p 0 48}{bind:flagg4         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE 4{p_end}
+{p 0 48}{bind:flagg5         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE 5{p_end}
+{p 0 48}{bind:flagg6         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE 6{p_end}
+{p 0 48}{bind:flagg7         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE 7{p_end}
+{p 0 48}{bind:flagg8         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}ACHIEVEMENT DATA AVAILABLE GRADE 8{p_end}
+{p 0 48}{bind:flagprt4       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}IN PARTICIPATION STUDY GRADE 4{p_end}
+{p 0 48}{bind:flagidn8       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}IN IDENTIFICATION STUDY GRADE 8{p_end}
+{p 0 48}{bind:flagprt8       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}IN PARTICIPATION STUDY GRADE 8{p_end}
+{p 0 48}{bind:flagsatact     }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}VALID SAT/ACT SCORE AVAILABLE{p_end}
+{p 0 48}{bind:flaghscourse   }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:FLAGHSCO }{bind:  }{res}{res}AT LEAST ONE YEAR OF HIGH SCHOOL COURSE DATA AVAILABLE{p_end}
+{p 0 48}{bind:flaghsgraduate }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}DATA ON HIGH SCHOOL GRADUATION STATUS AVAILABLE{p_end}
+{p 0 48}{bind:gkclasstype    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABD     }{bind:  }{res}{res}CLASSROOM TYPE KINDERGARTEN{p_end}
+{p 0 48}{bind:g1classtype    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABD     }{bind:  }{res}{res}CLASSROOM TYPE GRADE 1{p_end}
+{p 0 48}{bind:g2classtype    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABD     }{bind:  }{res}{res}CLASSROOM TYPE GRADE 2{p_end}
+{p 0 48}{bind:g3classtype    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABD     }{bind:  }{res}{res}CLASSROOM TYPE GRADE 3{p_end}
+{p 0 48}{bind:cmpstype       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:CMPSTYPE }{bind:  }{res}{res}CLASS TYPE COMPOSITE{p_end}
+{p 0 48}{bind:cmpsdura       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}DURATION COMPOSITE{p_end}
+{p 0 48}{bind:yearsstar      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF YEARS IN STAR{p_end}
+{p 0 48}{bind:yearssmall     }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF YEARS IN SMALL CLASSES{p_end}
+{p 0 48}{bind:gkschid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}KINDERGARTEN SCHOOL ID{p_end}
+{p 0 48}{bind:gksurban       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABE     }{bind:  }{res}{res}SCHOOL URBANICITY KINDERGARTEN{p_end}
+{p 0 48}{bind:gktchid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}KINDERGARTEN TEACHER ID{p_end}
+{p 0 48}{bind:gktgen         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABA     }{bind:  }{res}{res}TEACHER GENDER KINDERGARTEN{p_end}
+{p 0 48}{bind:gktrace        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABB     }{bind:  }{res}{res}TEACHER RACE/ETHNICITY KINDERGARTEN{p_end}
+{p 0 48}{bind:gkthighdegree  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:GKTHIGHD }{bind:  }{res}{res}TEACHER HIGHEST DEGREE KINDERGARTEN{p_end}
+{p 0 48}{bind:gktcareer      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABF     }{bind:  }{res}{res}TEACHER CAREER LADDER LEVEL KINDERGARTEN{p_end}
+{p 0 48}{bind:gktyears       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}YEARS OF TOTAL TEACHING EXPERIENCE KINDERGARTEN{p_end}
+{p 0 48}{bind:gkclasssize    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}CLASS SIZE KINDERGARTEN{p_end}
+{p 0 48}{bind:gkfreelunch    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABG     }{bind:  }{res}{res}FREE/REDUCED LUNCH STATUS KINDERGARTEN{p_end}
+{p 0 48}{bind:gkrepeat       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABH     }{bind:  }{res}{res}REPEATING KINDERGARTEN IN 1985-1986 SCHOOL YEAR{p_end}
+{p 0 48}{bind:gkspeced       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABI     }{bind:  }{res}{res}SPECIAL EDUCATION STATUS KINDERGARTEN{p_end}
+{p 0 48}{bind:gkspecin       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABI     }{bind:  }{res}{res}PULLED OUT FOR SPECIAL INSTRUCTION KINDERGARTEN{p_end}
+{p 0 48}{bind:gkpresent      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}DAYS PRESENT AT SCHOOL KINDERGARTEN{p_end}
+{p 0 48}{bind:gkabsent       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}DAYS ABSENT FROM SCHOOL KINDERGARTEN{p_end}
+{p 0 48}{bind:gktreadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE SAT KINDERGARTEN{p_end}
+{p 0 48}{bind:gktmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE SAT KINDERGARTEN{p_end}
+{p 0 48}{bind:gktlistss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LISTENING SCALE SCORE SAT KINDERGARTEN{p_end}
+{p 0 48}{bind:gkwordskillss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}WORD STUDY SKILLS SCALE SCORE SAT KINDERGARTEN{p_end}
+{p 0 48}{bind:gkmotivraw     }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MOTIVATION RAW SCORE SCAMIN KINDERGARTEN{p_end}
+{p 0 48}{bind:gkselfconcraw  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SELF-CONCEPT RAW SCORE SCAMIN KINDERGARTEN{p_end}
+{p 0 48}{bind:g1schid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 1 SCHOOL ID{p_end}
+{p 0 48}{bind:g1surban       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABE     }{bind:  }{res}{res}SCHOOL URBANICITY GRADE 1{p_end}
+{p 0 48}{bind:g1tchid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 1 TEACHER ID{p_end}
+{p 0 48}{bind:g1tgen         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABA     }{bind:  }{res}{res}TEACHER GENDER GRADE 1{p_end}
+{p 0 48}{bind:g1trace        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABB     }{bind:  }{res}{res}TEACHER RACE/ETHNICITY GRADE 1{p_end}
+{p 0 48}{bind:g1thighdegree  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABJ     }{bind:  }{res}{res}TEACHER HIGHEST DEGREE GRADE 1{p_end}
+{p 0 48}{bind:g1tcareer      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABK     }{bind:  }{res}{res}TEACHER CAREER LADDER LEVEL GRADE 1{p_end}
+{p 0 48}{bind:g1tyears       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}YEARS OF TOTAL TEACHING EXPERIENCE GRADE 1{p_end}
+{p 0 48}{bind:g1classsize    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}CLASS SIZE GRADE 1{p_end}
+{p 0 48}{bind:g1freelunch    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABG     }{bind:  }{res}{res}FREE/REDUCED LUNCH STATUS GRADE 1{p_end}
+{p 0 48}{bind:g1promote      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABH     }{bind:  }{res}{res}RECOMMENDED FOR PROMOTION FROM GRADE 1 TO GRADE 2{p_end}
+{p 0 48}{bind:g1speced       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABI     }{bind:  }{res}{res}SPECIAL EDUCATION STATUS GRADE 1{p_end}
+{p 0 48}{bind:g1specin       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABI     }{bind:  }{res}{res}PULLED OUT FOR SPECIAL INSTRUCTION GRADE 1{p_end}
+{p 0 48}{bind:g1present      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}DAYS PRESENT AT SCHOOL GRADE 1{p_end}
+{p 0 48}{bind:g1absent       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}DAYS ABSENT FROM SCHOOL GRADE 1{p_end}
+{p 0 48}{bind:g1treadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE SAT GRADE 1{p_end}
+{p 0 48}{bind:g1tmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE SAT GRADE 1{p_end}
+{p 0 48}{bind:g1tlistss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LISTENING SCALE SCORE SAT GRADE 1{p_end}
+{p 0 48}{bind:g1wordskillss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}WORD STUDY SKILLS SCALE SCORE SAT GRADE 1{p_end}
+{p 0 48}{bind:g1readbsraw    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING RAW SCORE BSF GRADE 1{p_end}
+{p 0 48}{bind:g1mathbsraw    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH RAW SCORE BSF GRADE 1{p_end}
+{p 0 48}{bind:g1readbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING NUMBER OBJECTIVES MASTERED BSF GRADE 1{p_end}
+{p 0 48}{bind:g1mathbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH NUMBER OBJECTIVES MASTERED BSF GRADE 1{p_end}
+{p 0 48}{bind:g1readbsobjpct }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING PERCENT OBJECTIVES MASTERED BSF GRADE 1{p_end}
+{p 0 48}{bind:g1mathbsobjpct }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH PERCENT OBJECTIVES MASTERED BSF GRADE 1{p_end}
+{p 0 48}{bind:g1motivraw     }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MOTIVATION RAW SCORE SCAMIN GRADE 1{p_end}
+{p 0 48}{bind:g1selfconcraw  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SELF-CONCEPT RAW SCORE SCAMIN GRADE 1{p_end}
+{p 0 48}{bind:g2schid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 2 SCHOOL ID{p_end}
+{p 0 48}{bind:g2surban       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABE     }{bind:  }{res}{res}SCHOOL URBANICITY GRADE 2{p_end}
+{p 0 48}{bind:g2tchid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 2 TEACHER ID{p_end}
+{p 0 48}{bind:g2tgen         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABA     }{bind:  }{res}{res}TEACHER GENDER GRADE 2{p_end}
+{p 0 48}{bind:g2trace        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABB     }{bind:  }{res}{res}TEACHER RACE/ETHNICITY GRADE 2{p_end}
+{p 0 48}{bind:g2thighdegree  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABJ     }{bind:  }{res}{res}TEACHER HIGHEST DEGREE GRADE 2{p_end}
+{p 0 48}{bind:g2tcareer      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABK     }{bind:  }{res}{res}TEACHER CAREER LADDER LEVEL GRADE 2{p_end}
+{p 0 48}{bind:g2tyears       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}YEARS OF TOTAL TEACHING EXPERIENCE GRADE 2{p_end}
+{p 0 48}{bind:g2ttrain       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABL     }{bind:  }{res}{res}ATTEND STAR TEACHER TRAINING GRADE 2{p_end}
+{p 0 48}{bind:g2classsize    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}CLASS SIZE GRADE 2{p_end}
+{p 0 48}{bind:g2freelunch    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABG     }{bind:  }{res}{res}FREE/REDUCED LUNCH STATUS GRADE 2{p_end}
+{p 0 48}{bind:g2promote      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABH     }{bind:  }{res}{res}RECOMMENDED FOR PROMOTION FROM GRADE 2 TO GRADE 3{p_end}
+{p 0 48}{bind:g2treadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE SAT GRADE 2{p_end}
+{p 0 48}{bind:g2tmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE SAT GRADE 2{p_end}
+{p 0 48}{bind:g2tlistss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LISTENING SCALE SCORE SAT GRADE 2{p_end}
+{p 0 48}{bind:g2wordskillss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}WORD STUDY SKILLS SCALE SCORE SAT GRADE 2{p_end}
+{p 0 48}{bind:g2readbsraw    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING RAW SCORE BSF GRADE 2{p_end}
+{p 0 48}{bind:g2mathbsraw    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH RAW SCORE BSF GRADE 2{p_end}
+{p 0 48}{bind:g2readbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING NUMBER OBJECTIVES MASTERED BSF GRADE 2{p_end}
+{p 0 48}{bind:g2mathbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH NUMBER OBJECTIVES MASTERED BSF GRADE 2{p_end}
+{p 0 48}{bind:g2readbsobjpct }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING PERCENT OBJECTIVES MASTERED BSF GRADE 2{p_end}
+{p 0 48}{bind:g2mathbsobjpct }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH PERCENT OBJECTIVES MASTERED BSF GRADE 2{p_end}
+{p 0 48}{bind:g2motivraw     }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MOTIVATION RAW SCORE SCAMIN GRADE 2{p_end}
+{p 0 48}{bind:g2selfconcraw  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SELF-CONCEPT RAW SCORE SCAMIN GRADE 2{p_end}
+{p 0 48}{bind:g3schid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 3 SCHOOL ID{p_end}
+{p 0 48}{bind:g3surban       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABE     }{bind:  }{res}{res}SCHOOL URBANICITY GRADE 3{p_end}
+{p 0 48}{bind:g3tchid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 3 TEACHER ID{p_end}
+{p 0 48}{bind:g3tgen         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABA     }{bind:  }{res}{res}TEACHER GENDER GRADE 3{p_end}
+{p 0 48}{bind:g3trace        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABB     }{bind:  }{res}{res}TEACHER RACE/ETHNICITY GRADE 3{p_end}
+{p 0 48}{bind:g3thighdegree  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABJ     }{bind:  }{res}{res}TEACHER HIGHEST DEGREE GRADE 3{p_end}
+{p 0 48}{bind:g3tcareer      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABF     }{bind:  }{res}{res}TEACHER CAREER LADDER LEVEL GRADE 3{p_end}
+{p 0 48}{bind:g3tyears       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}YEARS OF TOTAL TEACHING EXPERIENCE GRADE 3{p_end}
+{p 0 48}{bind:g3ttrain       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABL     }{bind:  }{res}{res}ATTEND STAR TEACHER TRAINING GRADE 3{p_end}
+{p 0 48}{bind:g3classsize    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}CLASS SIZE GRADE 3{p_end}
+{p 0 48}{bind:g3freelunch    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABG     }{bind:  }{res}{res}FREE/REDUCED LUNCH STATUS GRADE 3{p_end}
+{p 0 48}{bind:g3promote      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABH     }{bind:  }{res}{res}RECOMMENDED FOR PROMOTION FROM GRADE 3 TO GRADE 4{p_end}
+{p 0 48}{bind:g3present      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}DAYS PRESENT AT SCHOOL GRADE 3{p_end}
+{p 0 48}{bind:g3absent       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}DAYS ABSENT FROM SCHOOL GRADE 3{p_end}
+{p 0 48}{bind:g3treadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3tmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3tlangss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LANGUAGE SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3tlistss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LISTENING SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3sciencess    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SCIENCE SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3socialsciss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SOCIAL SCIENCE SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3spellss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SPELLING SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3vocabss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}VOCABULARY SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3mathcomputss }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH COMPUTATION SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3mathnumconcss}{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}CONCEPT OF NUMBERS SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3mathapplss   }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH APPLICATIONS SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3wordskillss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}WORD STUDY SKILLS SCALE SCORE SAT GRADE 3{p_end}
+{p 0 48}{bind:g3readbsraw    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING RAW SCORE BSF GRADE 3{p_end}
+{p 0 48}{bind:g3mathbsraw    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH RAW SCORE BSF GRADE 3{p_end}
+{p 0 48}{bind:g3readbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING NUMBER OBJECTIVES MASTERED BSF GRADE 3{p_end}
+{p 0 48}{bind:g3mathbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH NUMBER OBJECTIVES MASTERED BSF GRADE 3{p_end}
+{p 0 48}{bind:g3readbsobjpct }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING PERCENT OBJECTIVES MASTERED BSF GRADE 3{p_end}
+{p 0 48}{bind:g3mathbsobjpct }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH PERCENT OBJECTIVES MASTERED BSF GRADE 3{p_end}
+{p 0 48}{bind:g3motivraw     }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MOTIVATION RAW SCORE SCAMIN GRADE 3{p_end}
+{p 0 48}{bind:g3selfconcraw  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SELF-CONCEPT RAW SCORE SCAMIN GRADE 3{p_end}
+{p 0 48}{bind:g4schid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 4 SCHOOL ID{p_end}
+{p 0 48}{bind:g4surban       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABE     }{bind:  }{res}{res}SCHOOL URBANICITY GRADE 4{p_end}
+{p 0 48}{bind:g4tchid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 4 TEACHER ID{p_end}
+{p 0 48}{bind:g4tgen         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABA     }{bind:  }{res}{res}TEACHER GENDER GRADE 4{p_end}
+{p 0 48}{bind:g4trace        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABB     }{bind:  }{res}{res}TEACHER RACE/ETHNICITY GRADE 4{p_end}
+{p 0 48}{bind:g4nclass       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER STUDENTS CLASS ROSTER GRADE 4{p_end}
+{p 0 48}{bind:g4nwhite       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER WHITE STUDENTS CLASS ROSTER GRADE 4{p_end}
+{p 0 48}{bind:g4nblack       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER BLACK STUDENTS CLASS ROSTER GRADE 4{p_end}
+{p 0 48}{bind:g4nother       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OTHER RACE/ETHNICITY STUDENTS CLASS ROSTER GRADE 4{p_end}
+{p 0 48}{bind:g4pernwh       }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}PERCENT NON-WHITE STUDENTS IN CLASSROOM{p_end}
+{p 0 48}{bind:g4nfreelunch   }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER STUDENTS ON FREE-REDUCED LUNCH CLASS ROSTER GRADE 4{p_end}
+{p 0 48}{bind:g4treadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4tmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4tlangss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LANGUAGE SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4tbattss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL BATTERY SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4sciencess    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SCIENCE SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4socialsciss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SOCIAL SCIENCE SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4readcomprehss}{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING COMPREHENSION SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4spellss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SPELLING SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4vocabss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}VOCABULARY SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4mathcomputss }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH COMPUTATION SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4mathconcapp~s}{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH CONCEPTS AND APPLICATIONS SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4langexpss    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}LANGUAGE EXPRESSION SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4langmechss   }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}LANGUAGE MECHANICS SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4studyskillss }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}STUDY SKILLS SCALE SCORE CTBS GRADE 4{p_end}
+{p 0 48}{bind:g4readbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING NUMBER OBJECTIVES MASTERED BSF GRADE 4{p_end}
+{p 0 48}{bind:g4mathbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH NUMBER OBJECTIVES MASTERED BSF GRADE 4{p_end}
+{p 0 48}{bind:g4ptattn       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: PAYS ATTENTION IN CLASS{p_end}
+{p 0 48}{bind:g4pthwrk       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: COMPLETES HOMEWORK ON TIME{p_end}
+{p 0 48}{bind:g4ptothr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: WORKS WELL WITH OTHERS{p_end}
+{p 0 48}{bind:g4ptmtrl       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: LOSES MATERIALS{p_end}
+{p 0 48}{bind:g4ptlate       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: COMES LATE TO CLASS{p_end}
+{p 0 48}{bind:g4ptries       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: TRIES TO DO WORK WELL{p_end}
+{p 0 48}{bind:g4ptrstl       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: ACTS RESTLESS{p_end}
+{p 0 48}{bind:g4ptdisc       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: PARTICIPATES IN DISCUSSIONS{p_end}
+{p 0 48}{bind:g4ptwork       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: COMPLETES SEAT WORK{p_end}
+{p 0 48}{bind:g4ptimpt       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: THINKS SCHOOL IS IMPORTANT{p_end}
+{p 0 48}{bind:g4ptrepr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: NEEDS REPRIMANDING{p_end}
+{p 0 48}{bind:g4ptanoy       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: ANNOYS OTHERS{p_end}
+{p 0 48}{bind:g4ptpers       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: IS PERSISTENT{p_end}
+{p 0 48}{bind:g4ptknow       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: DOESN'T KNOW WHAT'S GOING ON{p_end}
+{p 0 48}{bind:g4ptextr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: DOES EXTRA WORK{p_end}
+{p 0 48}{bind:g4ptwthd       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: IS WITHDRAWN{p_end}
+{p 0 48}{bind:g4ptefrt       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: MAKES EFFORT{p_end}
+{p 0 48}{bind:g4ptcrit       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: IS CRITICAL OF ACHIEVERS{p_end}
+{p 0 48}{bind:g4ptasks       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: ASKS QUESTIONS{p_end}
+{p 0 48}{bind:g4ptalks       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: TALKS TOO MUCH{p_end}
+{p 0 48}{bind:g4ptintv       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: LACKS INITIATIVE{p_end}
+{p 0 48}{bind:g4pteasy       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: PREFERS EASY PROBLEMS{p_end}
+{p 0 48}{bind:g4ptcrts       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: CRITICIZES SUBJECT MATTER{p_end}
+{p 0 48}{bind:g4ptfnsh       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: TRIES TO FINISH DIFFICULT WORK{p_end}
+{p 0 48}{bind:g4ptrais       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: RAISES HAND TO TALK{p_end}
+{p 0 48}{bind:g4ptseek       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: SEEKS REFERENCE MATERIAL{p_end}
+{p 0 48}{bind:g4ptdsrg       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: IS EASILY DISCOURAGED{p_end}
+{p 0 48}{bind:g4ptdiss       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 4 PARTICIPATION: DISCUSSES SUBJECT MATTER OUTSIDE OF CLASS{p_end}
+{p 0 48}{bind:g4ptextc       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:G4PTEXTC }{bind:  }{res}{res}GRADE 4 PARTICIPATION: ATTENDS EXTRACURRICULAR ACTIVITIES{p_end}
+{p 0 48}{bind:g4ptperf       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:G4PTPERF }{bind:  }{res}{res}GRADE 4 PARTICIPATION: OVERALL ACADEMIC PERFORMANCE{p_end}
+{p 0 48}{bind:g4ptsped       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:G4PTSPED }{bind:  }{res}{res}GRADE 4 PARTICIPATION: ATTENDS SPECIAL EDUCATION{p_end}
+{p 0 48}{bind:g4pteffr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 4 PARTICIPATION SUBSCORE: EFFORT{p_end}
+{p 0 48}{bind:g4ptinit       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 4 PARTICIPATION SUBSCORE: INITIATIVE{p_end}
+{p 0 48}{bind:g4ptnonp       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 4 PARTICIPATION SUBSCORE: NONPARTICIPATORY BEHAVIOR{p_end}
+{p 0 48}{bind:g4ptvalu       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 4 PARTICIPATION SUBSCORE: VALUE{p_end}
+{p 0 48}{bind:g5schid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 5 SCHOOL ID{p_end}
+{p 0 48}{bind:g5treadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5tmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5tlangss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LANGUAGE SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5tbattss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL BATTERY SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5sciencess    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SCIENCE SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5socialsciss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SOCIAL SCIENCE SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5readcomprehss}{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING COMPREHENSION SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5spellss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SPELLING SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5vocabss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}VOCABULARY SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5mathcomputss }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH COMPUTATION SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5mathconcapp~s}{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH CONCEPTS AND APPLICATIONS SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5langexpss    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}LANGUAGE EXPRESSION SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5langmechss   }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}LANGUAGE MECHANICS SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5studyskillss }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}STUDY SKILLS SCALE SCORE CTBS GRADE 5{p_end}
+{p 0 48}{bind:g5readbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING NUMBER OBJECTIVES MASTERED BSF GRADE 5{p_end}
+{p 0 48}{bind:g5mathbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH NUMBER OBJECTIVES MASTERED BSF GRADE 5{p_end}
+{p 0 48}{bind:g6schid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 6 SCHOOL ID{p_end}
+{p 0 48}{bind:g6treadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE CTBS GRADE 6{p_end}
+{p 0 48}{bind:g6tmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE CTBS GRADE 6{p_end}
+{p 0 48}{bind:g6tlangss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LANGUAGE SCALE SCORE CTBS GRADE 6{p_end}
+{p 0 48}{bind:g6sciencess    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SCIENCE SCALE SCORE CTBS GRADE 6{p_end}
+{p 0 48}{bind:g6socialsciss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SOCIAL SCIENCE SCALE SCORE CTBS GRADE 6{p_end}
+{p 0 48}{bind:g6readbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING NUMBER OBJECTIVES MASTERED BSF GRADE 6{p_end}
+{p 0 48}{bind:g6mathbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH NUMBER OBJECTIVES MASTERED BSF GRADE 6{p_end}
+{p 0 48}{bind:g7schid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 7 SCHOOL ID{p_end}
+{p 0 48}{bind:g7treadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7tmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7tlangss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LANGUAGE SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7tbattss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL BATTERY SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7sciencess    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SCIENCE SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7socialsciss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SOCIAL SCIENCE SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7readcomprehss}{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING COMPREHENSION SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7spellss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SPELLING SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7vocabss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}VOCABULARY SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7mathcomputss }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH COMPUTATION SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7mathconcapp~s}{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH CONCEPTS AND APPLICATIONS SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7langexpss    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}LANGUAGE EXPRESSION SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7langmechss   }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}LANGUAGE MECHANICS SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7studyskillss }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}STUDY SKILLS SCALE SCORE CTBS GRADE 7{p_end}
+{p 0 48}{bind:g7readbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING NUMBER OBJECTIVES MASTERED BSF GRADE 7{p_end}
+{p 0 48}{bind:g7mathbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH NUMBER OBJECTIVES MASTERED BSF GRADE 7{p_end}
+{p 0 48}{bind:g8schid        }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 SCHOOL ID{p_end}
+{p 0 48}{bind:g8surban       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:G8SURBAN }{bind:  }{res}{res}SCHOOL URBANICITY GRADE 8{p_end}
+{p 0 48}{bind:g8treadss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL READING SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8tmathss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL MATH SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8tlangss      }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL LANGUAGE SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8tbatts       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL BATTERY SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8sciencess    }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SCIENCE SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8socialsciss  }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SOCIAL SCIENCE SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8readco       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING COMPREHENSION SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8spells       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SPELLING SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8vocabs       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}VOCABULARY SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8mathco       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH COMPUTATION SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8math_a       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH CONCEPTS AND APPLICATIONS SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8langex       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}LANGUAGE EXPRESSION SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8langme       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}LANGUAGE MECHANICS SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8studys       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}STUDY SKILLS SCALE SCORE CTBS GRADE 8{p_end}
+{p 0 48}{bind:g8readbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}READING NUMBER OBJECTIVES MASTERED BSF GRADE 8{p_end}
+{p 0 48}{bind:g8mathbsobjraw }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}MATH NUMBER OBJECTIVES MASTERED BSF GRADE 8{p_end}
+{p 0 48}{bind:g8idprou       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: I FEEL PROUD BEING PART OF SCHOOL{p_end}
+{p 0 48}{bind:g8idrspt       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: I AM TREATED WITH RESPECT{p_end}
+{p 0 48}{bind:g8idgdjb       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: I CAN GET A GOOD JOB EVEN IF GRADES BAD{p_end}
+{p 0 48}{bind:g8idattn       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: I ONLY GET ATTENTION WHEN I CAUSE TROUBLE{p_end}
+{p 0 48}{bind:g8idactv       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: I PARTICIPATE IN A LOT OF ACTIVITIES AT SCHOOL{p_end}
+{p 0 48}{bind:g8idimpt       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: SCHOOL IS IMPORTANT IN MY LIFE{p_end}
+{p 0 48}{bind:g8idpopu       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: I AM LESS POPULAR WHEN I GET BETTER GRADES{p_end}
+{p 0 48}{bind:g8idusls       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: WHAT WE LEARN IN CLASS IS USELESS{p_end}
+{p 0 48}{bind:g8idfrnl       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: MY FRIENDS LIKE SCHOOL A LOT{p_end}
+{p 0 48}{bind:g8idcare       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: MY TEACHERS DONT CARE ABOUT ME{p_end}
+{p 0 48}{bind:g8idplac       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: I LIKE BEING ANY PLACE OTHER THAN SCHOOL{p_end}
+{p 0 48}{bind:g8idprob       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: I CAN TALK TO TEACHERS ABOUT PROBLEMS{p_end}
+{p 0 48}{bind:g8idusef       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: WHAT WE LEARN IN SCHOOL WILL BE USEFUL ON JOB{p_end}
+{p 0 48}{bind:g8idfrnc       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: MY FRIENDS DONT CARE ABOUT BAD GRADES{p_end}
+{p 0 48}{bind:g8idtryg       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: TRYING HARD MAKES OTHERS DISLIKE ME{p_end}
+{p 0 48}{bind:g8idfavr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: SCHOOL IS FAVORITE PLACE TO BE{p_end}
+{p 0 48}{bind:g8idintr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: PEOPLE ARE INTERESTED IN WHAT I SAY{p_end}
+{p 0 48}{bind:g8idwast       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: SCHOOL IS WASTE OF TIME{p_end}
+{p 0 48}{bind:g8iddrop       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: DROPPING OUT IS A HUGE MISTAKE{p_end}
+{p 0 48}{bind:g8idfrnu       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: MY FRIENDS UPSET WHEN I DO SCHOOLWORK{p_end}
+{p 0 48}{bind:g8idmimp       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: SCHOOL IS MORE IMPORTANT THAN PEOPLE THINK{p_end}
+{p 0 48}{bind:g8idfrnw       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: MY FRIENDS THINK SCHOOL IS WASTE OF TIME{p_end}
+{p 0 48}{bind:g8idfrns       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABN     }{bind:  }{res}{res}GRADE 8 IDENTIFICATION: MOST OF MY FRIENDS GO TO SCHOOL{p_end}
+{p 0 48}{bind:g8idblng       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 IDENTIFICATION SUBSCORE: BELONGING{p_end}
+{p 0 48}{bind:g8idvalu       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 IDENTIFICATION SUBSCORE: VALUING{p_end}
+{p 0 48}{bind:g8idtotl       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 IDENTIFICATION TOTAL SCORE{p_end}
+{p 0 48}{bind:g8peabsn       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABO     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: ABSENTEEISM{p_end}
+{p 0 48}{bind:g8peprnt       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABP     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: SPOKEN TO PARENTS{p_end}
+{p 0 48}{bind:g8peattn       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: PAYS ATTENTION IN CLASS{p_end}
+{p 0 48}{bind:g8pemtrl       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: LOSES MATERIALS{p_end}
+{p 0 48}{bind:g8peasgn       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: COMPLETES ASSIGNMENTS{p_end}
+{p 0 48}{bind:g8pelate       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: COMES LATE TO CLASS{p_end}
+{p 0 48}{bind:g8pepers       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: IS PERSISTENT{p_end}
+{p 0 48}{bind:g8pecrts       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: CRITICIZES SUBJECT MATTER{p_end}
+{p 0 48}{bind:g8pemore       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: DOES MORE THAN ASSIGNED WORK{p_end}
+{p 0 48}{bind:g8peanoy       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: ANNOYS OTHERS{p_end}
+{p 0 48}{bind:g8pevalu       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: THINKS COURSE IS VALUABLE{p_end}
+{p 0 48}{bind:g8pecrit       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: IS CRITICAL OF ACHIEVERS{p_end}
+{p 0 48}{bind:g8pedisc       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: PARTICIPATES IN DISCUSSIONS{p_end}
+{p 0 48}{bind:g8perepr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: NEEDS REPRIMANDING{p_end}
+{p 0 48}{bind:g8peabus       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: ABUSIVE TO TEACHER{p_end}
+{p 0 48}{bind:g8pediss       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: DISCUSSES SUBJECT MATTER OUTSIDE OF CLASS{p_end}
+{p 0 48}{bind:g8peeffr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: EFFORT SCORE{p_end}
+{p 0 48}{bind:g8peinit       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 PARTICIPATION, ENGLISH: INITIATIVE SCORE{p_end}
+{p 0 48}{bind:g8penonp       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 PARTIICPATION, ENGLISH: NON-PARTICIPATION SCORE{p_end}
+{p 0 48}{bind:g8pmabsn       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABO     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: ABSENTEEISM{p_end}
+{p 0 48}{bind:g8pmprnt       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABP     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: SPOKEN TO PARENTS{p_end}
+{p 0 48}{bind:g8pmattn       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: PAYS ATTENTION IN CLASS{p_end}
+{p 0 48}{bind:g8pmmtrl       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: LOSES MATERIALS{p_end}
+{p 0 48}{bind:g8pmasgn       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: COMPLETES ASSIGNMENTS{p_end}
+{p 0 48}{bind:g8pmlate       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: COMES LATE TO CLASS{p_end}
+{p 0 48}{bind:g8pmpers       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: IS PERSISTENT{p_end}
+{p 0 48}{bind:g8pmcrts       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: CRITICIZES SUBJECT MATTER{p_end}
+{p 0 48}{bind:g8pmmore       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: DOES MORE THAN ASSIGNED WORK{p_end}
+{p 0 48}{bind:g8pmanoy       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: ANNOYS OTHERS{p_end}
+{p 0 48}{bind:g8pmvalu       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: THINKS COURSE IS VALUABLE{p_end}
+{p 0 48}{bind:g8pmcrit       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: IS CRITICAL OF ACHIEVERS{p_end}
+{p 0 48}{bind:g8pmdisc       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: PARTICIPATES IN DISCUSSIONS{p_end}
+{p 0 48}{bind:g8pmrepr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: NEEDS REPRIMANDING{p_end}
+{p 0 48}{bind:g8pmabus       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: ABUSIVE TO TEACHER{p_end}
+{p 0 48}{bind:g8pmdiss       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABM     }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: DISCUSSES SUBJECT MATTER OUTSIDE OF CLASS{p_end}
+{p 0 48}{bind:g8pmeffr       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: EFFORT SCORE{p_end}
+{p 0 48}{bind:g8pminit       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: INITIATIVE SCORE{p_end}
+{p 0 48}{bind:g8pmnonp       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}GRADE 8 PARTICIPATION, MATHEMATICS: NON-PARTICIPATION SCORE{p_end}
+{p 0 48}{bind:hsid           }{txt}{bind: long   }{bind:{txt}%12.0g     }{space 1}{bind:         }{bind:  }{res}{res}HIGH SCHOOL ID{p_end}
+{p 0 48}{bind:hsfrnch1       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS FRENCH 1 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsfrnch2       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS FRENCH 2 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsfrnch3       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS FRENCH 3 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsfrnch4       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS FRENCH 4 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgrmn1        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS GERMAN 1 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgrmn2        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS GERMAN 2 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgrmn3        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS GERMAN 3 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgrmn4        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS GERMAN 4 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hslatin1sem    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS LATIN 1 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hslatin2sem    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS LATIN 2 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hslatin3sem    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS LATIN 3 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hslatin4sem    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS LATIN 4 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsspani1       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS SPANISH 1 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsspani2       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS SPANISH 2 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsspani3       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS SPANISH 3 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsspani4       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS SPANISH 4 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsspani5       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS SPANISH 5 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsflang1sem    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS FOREIGN LANGUAGE 1 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsflang2sem    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS FOREIGN LANGUAGE 2 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsflang3sem    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS FOREIGN LANGUAGE 3 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsflang4sem    }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS FOREIGN LANGUAGE 4 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsflangtotsem  }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL NUMBER OF SEMESTERS FOREIGN LANGUAGE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsmath1        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS MATH 1 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsmath2        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS MATH 2 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsmath3        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS MATH 3 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsmath4        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS MATH 4 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsmath5        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}NUMBER OF SEMESTERS MATH 5 HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsmathtotsem   }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL NUMBER OF SEMESTERS MATH HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsciento       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}TOTAL NUMBER OF SEMESTERS SCIENCE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgpaflang     }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}GPA FOREIGN LANGUAGE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgpamath      }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}GPA MATH HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgpascience   }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}GPA SCIENCE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgpaoverall   }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}GPA OVERALL HIGH SCHOOL{p_end}
+{p 0 48}{bind:hslvlfla       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}HIGHEST FOREIGN LANGUAGE LEVEL HIGH SCHOOL{p_end}
+{p 0 48}{bind:hslvlmth       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}HIGHEST MATH LEVEL HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsyrscor       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:HSYRSCOR }{bind:  }{res}{res}NUMBER OF YEARS OF HIGH SCHOOL COURSE TAKING DATA{p_end}
+{p 0 48}{bind:hsctsrc        }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:HSCTSRC  }{bind:  }{res}{res}SOURCE OF HIGH SCHOOL COURSE TAKING DATA{p_end}
+{p 0 48}{bind:hssat          }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}TOOK SAT TEST HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsact          }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}TOOK ACT TEST HIGH SCHOOL{p_end}
+{p 0 48}{bind:hstest         }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}TOOK EITHER SAT OR ACT TEST HIGH SCHOOL{p_end}
+{p 0 48}{bind:hssatmath      }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}SAT MATH SCORE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hssatverbal    }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}SAT VERBAL SCORE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hssattot       }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}SAT COMBINED VERBAL + MATH SCORE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsactcomp      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}ACT COMPOSITE SCORE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsacttot       }{txt}{bind: int    }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}ACT TOTAL OF PARTS (ENG, READ, MATH, SCI) SCORES HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsactenglish   }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}ACT ENGLISH SCORE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsactmath      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}ACT MATH SCORE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsactread      }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}ACT READING SCORE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsactscience   }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}ACT SCIENCE SCORE HIGH SCHOOL{p_end}
+{p 0 48}{bind:hssatconverted }{txt}{bind: double }{bind:{txt}%10.0g     }{space 1}{bind:         }{bind:  }{res}{res}ACT --> SAT (TEST SCORE REPORTED IN SAT SUM METRIC) HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsactconverted }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:         }{bind:  }{res}{res}SAT --> ACT (TEST SCORE REPORTED IN ACT COMPOSITE METRIC) HIGH SCHOOL{p_end}
+{p 0 48}{bind:hsgrdadd       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:HSGRDADD }{bind:  }{res}{res}HIGH SCHOOL GRADUATION STATUS (WITH ADDITIONAL CODES){p_end}
+{p 0 48}{bind:hsgrdcol       }{txt}{bind: byte   }{bind:{txt}%8.0g      }{space 1}{bind:LABC     }{bind:  }{res}{res}HIGH SCHOOL GRADUATION STATUS (COLLAPSING ADDITIONAL CODES){p_end}
+{txt}{hline}
+Sorted by:  
+
+{com}. *** 6325 kids
 . 
 . tab flagsgk
 
@@ -43,42 +434,41 @@
 KINDERGARTE {c |}
           N {c |}      Freq.     Percent        Cum.
 {hline 12}{c +}{hline 35}
-        yes {c |}{res}      5,789      100.00      100.00
+        yes {c |}{res}      6,325      100.00      100.00
 {txt}{hline 12}{c +}{hline 35}
-      Total {c |}{res}      5,789      100.00
+      Total {c |}{res}      6,325      100.00
 {txt}
 {com}. tab flagsg1
 
  {txt}IN STAR IN {c |}
     GRADE 1 {c |}      Freq.     Percent        Cum.
 {hline 12}{c +}{hline 35}
-         no {c |}{res}      1,587       27.41       27.41
-{txt}        yes {c |}{res}      4,202       72.59      100.00
+         no {c |}{res}      1,810       28.62       28.62
+{txt}        yes {c |}{res}      4,515       71.38      100.00
 {txt}{hline 12}{c +}{hline 35}
-      Total {c |}{res}      5,789      100.00
+      Total {c |}{res}      6,325      100.00
 {txt}
 {com}. tab flagsg2
 
  {txt}IN STAR IN {c |}
     GRADE 2 {c |}      Freq.     Percent        Cum.
 {hline 12}{c +}{hline 35}
-         no {c |}{res}      2,367       40.89       40.89
-{txt}        yes {c |}{res}      3,422       59.11      100.00
+         no {c |}{res}      2,665       42.13       42.13
+{txt}        yes {c |}{res}      3,660       57.87      100.00
 {txt}{hline 12}{c +}{hline 35}
-      Total {c |}{res}      5,789      100.00
+      Total {c |}{res}      6,325      100.00
 {txt}
 {com}. tab flagsg3
 
  {txt}IN STAR IN {c |}
     GRADE 3 {c |}      Freq.     Percent        Cum.
 {hline 12}{c +}{hline 35}
-         no {c |}{res}      2,765       47.76       47.76
-{txt}        yes {c |}{res}      3,024       52.24      100.00
+         no {c |}{res}      3,094       48.92       48.92
+{txt}        yes {c |}{res}      3,231       51.08      100.00
 {txt}{hline 12}{c +}{hline 35}
-      Total {c |}{res}      5,789      100.00
+      Total {c |}{res}      6,325      100.00
 {txt}
 {com}. 
-. 
 . sum gktreadss
 
 {txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
@@ -95,22 +485,22 @@ KINDERGARTE {c |}
 . 
 . * a. 
 . 
-. **** Sample
+. **** Sample 1
 . 
 . sample 160, count
-{txt}(5629 observations deleted)
+{txt}(6165 observations deleted)
 
 {com}. 
 . * i. 
 . 
 . mean gktreadss
 {res}
-{txt}Mean estimation{col 37}Number of obs{col 54}= {res}    160
+{txt}Mean estimation{col 37}Number of obs{col 54}= {res}    152
 
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
 {col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
-{space 3}gktreadss {c |}{col 14}{res}{space 2}  432.775{col 26}{space 2} 2.053069{col 37}{space 5} 428.7202{col 51}{space 3} 436.8298
+{space 3}gktreadss {c |}{col 14}{res}{space 2} 438.3487{col 26}{space 2} 2.413062{col 37}{space 5}  433.581{col 51}{space 3} 443.1164
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
 
 {com}. 
@@ -133,23 +523,23 @@ KINDERGARTE {c |}
 . * iv.
 . **** It is significantly different from 440 at the 95% confidence level 
 . 
-. * b. 
+. **** b. Sample II
 . 
 . use `STAR_kindergarteners', replace
 {txt}
 {com}. 
 . sample 160, count
-{txt}(5629 observations deleted)
+{txt}(6165 observations deleted)
 
 {com}. 
 . mean gktreadss
 {res}
-{txt}Mean estimation{col 37}Number of obs{col 54}= {res}    160
+{txt}Mean estimation{col 37}Number of obs{col 54}= {res}    148
 
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
 {col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
-{space 3}gktreadss {c |}{col 14}{res}{space 2} 436.3125{col 26}{space 2} 2.660673{col 37}{space 5} 431.0577{col 51}{space 3} 441.5673
+{space 3}gktreadss {c |}{col 14}{res}{space 2} 438.4392{col 26}{space 2}  2.55128{col 37}{space 5} 433.3973{col 51}{space 3} 443.4811
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
 
 {com}. 
@@ -166,7 +556,7 @@ KINDERGARTE {c |}
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/Alfonso/Google Drive/UT/Fall 2017/RD/assignment1.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 8 Sep 2017, 15:24:19
+ {txt}closed on:  {res} 9 Sep 2017, 20:56:57
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
