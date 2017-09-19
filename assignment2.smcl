@@ -1,0 +1,110 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/Alfonso/Google Drive/UT/Fall 2017/RD/assignment2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}19 Sep 2017, 12:04:06
+{txt}
+{com}. set seed 3347
+{txt}
+{com}. 
+. ******************
+. * Question 3
+. ******************
+. 
+. use "/Users/Alfonso/Google Drive/UT/Fall 2017/RD/STAR_students.dta"
+{txt}
+{com}. 
+. drop if missing(gktreadss)
+{txt}(5812 observations deleted)
+
+{com}. 
+. mean(gktreadss)
+{res}
+{txt}Mean estimation{col 37}Number of obs{col 54}= {res}   5789
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 3}gktreadss {c |}{col 14}{res}{space 2} 436.7253{col 26}{space 2}  .416719{col 37}{space 5} 435.9084{col 51}{space 3} 437.5423
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. 
+. egen students_in_school = count(stdntid), by(gkschid)
+{txt}
+{com}. 
+. tab students_in_school
+
+{txt}students_in {c |}
+    _school {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         34 {c |}{res}         34        0.59        0.59
+{txt}         39 {c |}{res}         39        0.67        1.26
+{txt}         41 {c |}{res}         41        0.71        1.97
+{txt}         45 {c |}{res}         45        0.78        2.75
+{txt}         48 {c |}{res}         48        0.83        3.58
+{txt}         49 {c |}{res}         49        0.85        4.42
+{txt}         50 {c |}{res}         50        0.86        5.29
+{txt}         51 {c |}{res}        153        2.64        7.93
+{txt}         52 {c |}{res}         52        0.90        8.83
+{txt}         53 {c |}{res}        212        3.66       12.49
+{txt}         54 {c |}{res}        108        1.87       14.35
+{txt}         55 {c |}{res}        165        2.85       17.21
+{txt}         56 {c |}{res}        168        2.90       20.11
+{txt}         57 {c |}{res}        114        1.97       22.08
+{txt}         58 {c |}{res}        174        3.01       25.08
+{txt}         59 {c |}{res}        118        2.04       27.12
+{txt}         60 {c |}{res}        180        3.11       30.23
+{txt}         61 {c |}{res}         61        1.05       31.28
+{txt}         62 {c |}{res}         62        1.07       32.35
+{txt}         63 {c |}{res}        126        2.18       34.53
+{txt}         64 {c |}{res}         64        1.11       35.64
+{txt}         66 {c |}{res}        264        4.56       40.20
+{txt}         67 {c |}{res}         67        1.16       41.35
+{txt}         69 {c |}{res}         69        1.19       42.55
+{txt}         71 {c |}{res}        142        2.45       45.00
+{txt}         72 {c |}{res}         72        1.24       46.24
+{txt}         73 {c |}{res}         73        1.26       47.50
+{txt}         74 {c |}{res}         74        1.28       48.78
+{txt}         75 {c |}{res}        150        2.59       51.37
+{txt}         76 {c |}{res}         76        1.31       52.69
+{txt}         78 {c |}{res}        156        2.69       55.38
+{txt}         79 {c |}{res}         79        1.36       56.75
+{txt}         82 {c |}{res}         82        1.42       58.16
+{txt}         85 {c |}{res}         85        1.47       59.63
+{txt}         89 {c |}{res}         89        1.54       61.17
+{txt}         90 {c |}{res}         90        1.55       62.72
+{txt}         91 {c |}{res}         91        1.57       64.29
+{txt}         94 {c |}{res}         94        1.62       65.92
+{txt}         95 {c |}{res}        285        4.92       70.84
+{txt}         96 {c |}{res}        192        3.32       74.16
+{txt}         98 {c |}{res}         98        1.69       75.85
+{txt}         99 {c |}{res}         99        1.71       77.56
+{txt}        100 {c |}{res}        100        1.73       79.29
+{txt}        105 {c |}{res}        105        1.81       81.10
+{txt}        106 {c |}{res}        106        1.83       82.93
+{txt}        107 {c |}{res}        107        1.85       84.78
+{txt}        112 {c |}{res}        112        1.93       86.72
+{txt}        117 {c |}{res}        117        2.02       88.74
+{txt}        120 {c |}{res}        120        2.07       90.81
+{txt}        130 {c |}{res}        130        2.25       93.06
+{txt}        131 {c |}{res}        131        2.26       95.32
+{txt}        134 {c |}{res}        134        2.31       97.63
+{txt}        137 {c |}{res}        137        2.37      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      5,789      100.00
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. mean students_in_school
+{res}
+{txt}Mean estimation{col 37}Number of obs{col 54}= {res}   5789
+
+{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 20}{c |}       Mean{col 32}   Std. Err.{col 44}     [95% Con{col 57}f. Interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+students_in_school {c |}{col 20}{res}{space 2} 80.99931{col 32}{space 2} .3412906{col 43}{space 5} 80.33025{col 57}{space 3} 81.66837
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. 
