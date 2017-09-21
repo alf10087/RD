@@ -13,9 +13,9 @@
 
 ### Assignment 2
 
-  * **Assignment 2.R** R code for sampling using some user-written packages to stratify and cluster.
-  * **Assignment 2.do** Stata do-file for the same cluster, weights, stratification, and svydesign setting.
-  * **Assignment 2.smcl** Just the log from the do file.
+* **Assignment 2.R:** R code for sampling using some user-written packages to stratify and cluster.
+* **Assignment 2.do:** Stata do-file for the same cluster, weights, stratification, and svydesign setting.
+* **Assignment 2.smcl:** Just the log from the do file.
 
 --
 
