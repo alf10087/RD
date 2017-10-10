@@ -17,6 +17,23 @@
 * **Assignment 2.do:** Stata do-file for the same cluster, weights, stratification, and svydesign setting.
 * **Assignment 2.smcl:** Just the log from the do file.
 
+### Assignment 3
+
+* **Assignment 3.do:** Some regressions and descriptives. Nothing very heavy.
+* **Assignment 3.log:** Just the log from the do file, notice I changed the format of the logs to .log :man_shrugging:
+
+*Notice I stopped using R. The code is too simple and will go back to R if the complexity calls for it.*
+
+### Assignment 4
+
+* **Assignment 4.do:** Some regressions with school dummies to account for intraclass correlation. Or not.
+* **Assignment 4.log:** I might have screwed up with this log because I didn't update another do-file, but no real incentive to fix it.
+
+### Assignment 5
+
+* **Assignment 5.do:** This might be the same as Assignment 5. I mixed up the files. Email me if you need the correct ones.
+* **Assignment 5.log:** I think this is ok.
+
 --
 
 *Questions: rojas.alfonso@me.com :+1:*
